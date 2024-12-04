@@ -1,4 +1,8 @@
 name: Deploy to GitHub Pages
+- name: Set Git user
+  run: |
+    git config --global user.name "dheeraj4092"
+    git config --global user.email "dheerajkumarv2904.com"
 
 on:
   push:
