@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Menu, X, BookOpen, User, MessageSquare } from 'lucide-react';
-import { useState } from 'react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
