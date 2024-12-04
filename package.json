@@ -8,11 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "tsx watch server/index.ts",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "server": "tsx watch server/index.ts"
   },
-  "homepage":  "https://dheeraj4092.github.io/codeTrain",
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
@@ -47,7 +44,6 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/bcryptjs": "^2.4.6",
     "@types/better-sqlite3": "^7.6.9",
-    "tsx": "^4.7.1",
-    "gh-pages": "^4.0.0"
+    "tsx": "^4.7.1"
   }
 }
