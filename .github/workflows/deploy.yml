@@ -3,28 +3,29 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger deployment when pushing to the main branch
+      - main  # Trigger the workflow when changes are pushed to the main branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Run on the latest Ubuntu
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Set the Node.js version you are using
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Specify the Node.js version (adjust as needed)
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build the project
-        run: npm run build  # Ensure that the build step is executed
+    - name: Build the project
+      run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_branch: gh-pages  # Deploy to the gh-pages branch
-          folder: dist  # The folder containing the built files
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        publish_dir: ./dist  # Folder to be deployed (e.g., 'dist' for Vite)
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
