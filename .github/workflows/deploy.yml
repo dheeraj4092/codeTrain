@@ -28,4 +28,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: ./dist  # Specify the folder to deploy (for Vite, it's usually 'dist')
-        token: ${{ secrets.GITHUB_TOKEN }}  # Token for authentication
+        token: ${{ secrets.GITHUB_TOKEN }} 
+        force: true # Token for authentication
