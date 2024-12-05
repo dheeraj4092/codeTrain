@@ -1,4 +1,4 @@
-/*import Database from 'better-sqlite3';
+import Database from 'better-sqlite3';
 import { hashPassword } from '../utils/auth';
 
 const db = new Database('education.db');
@@ -92,4 +92,4 @@ export function initializeDatabase() {
   }
 }
 
-export default db;*/
+export default db;

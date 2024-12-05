@@ -1,7 +1,34 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
+// Mock data for Kids Programs
+interface Program {
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  courses: string[];
+}
+const programs: Program[] = [
+  {
+    title: 'Coding for Kids',
+    description: 'Introduce your child to the world of coding with fun and interactive lessons.',
+    icon: () => <div className="h-8 w-8 text-blue-600">👾</div>, // Use any icon component you prefer
+    courses: ['Scratch Programming', 'Python for Kids', 'Web Development Basics'],
+  },
+  {
+    title: 'Math and Science Fun',
+    description: 'Engage your child in exciting math and science projects that make learning fun.',
+    icon: () => <div className="h-8 w-8 text-blue-600">🧪</div>, // Use any icon component you prefer
+    courses: ['Introduction to Chemistry', 'Math Puzzles', 'Physics for Kids'],
+  },
+];
+
 export function Hero() {
+  // Handle Enroll Button Click
+  const handleEnrollClick = () => {
+    alert('Enrollment successful!');
+  };
+
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -35,10 +62,40 @@ export function Hero() {
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-half lg:h-half"
           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
           alt="Students learning"
         />
+      </div>
+
+      {/* Kids Programs */}
+      <div className="bg-white rounded-lg shadow-lg p-8 mb-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Kids Programs</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {programs.map((program, index) => (
+            <div key={index} className="border rounded-lg p-6">
+              <div className="flex items-center mb-4">
+                <program.icon className="h-8 w-8 text-blue-600" />
+                <h3 className="text-xl font-semibold text-gray-900 ml-3">{program.title}</h3>
+              </div>
+              <p className="text-gray-600 mb-4">{program.description}</p>
+              <div className="space-y-2">
+                <h4 className="font-medium text-gray-900">Available Courses:</h4>
+                <ul className="list-disc list-inside text-gray-600">
+                  {program.courses.map((course, idx) => (
+                    <li key={idx}>{course}</li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                onClick={handleEnrollClick}
+                className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+              >
+                Enroll Now
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

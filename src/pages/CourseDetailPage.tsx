@@ -1,10 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { courses } from '../data/courses';
 import { Clock, Users, DollarSign, CheckCircle2 } from 'lucide-react';
 
 export function CourseDetailPage() {
   const { courseId } = useParams<{ courseId: string }>();
+  const navigate = useNavigate();
   const course = courses.find((c) => c.id === courseId);
 
   if (!course) {
@@ -17,6 +18,10 @@ export function CourseDetailPage() {
       </div>
     );
   }
+
+  const handleEnrollClick = () => {
+    navigate('/enroll');
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">
@@ -93,7 +98,10 @@ export function CourseDetailPage() {
             </div>
 
             <div className="mt-8 flex justify-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors duration-300">
+              <button 
+                onClick={handleEnrollClick}
+                className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors duration-300"
+              >
                 Enroll Now
               </button>
             </div>
