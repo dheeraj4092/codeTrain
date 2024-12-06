@@ -5,6 +5,16 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "typeRoots": ["./node_modules/@types", "./types"], // Includes custom types
+    "types": ["node", "react", "react-dom"],          // Adds necessary global type declarations
+    "allowSyntheticDefaultImports": true,            // Ensures compatibility with libraries like date-fns
+    "esModuleInterop": true,                         // Smooth integration with ES modules
+    "resolveJsonModule": true,                       // Allows importing JSON files
+    "strict": true,                                  // Enforces type safety
+    "skipLibCheck": true,                            // Skips type checking of declaration files
+    "baseUrl": ".",                                  // Base directory for module resolution
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]         // Resolves both node_modules and custom types
+    }
   }
 }

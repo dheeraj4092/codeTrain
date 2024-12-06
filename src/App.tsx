@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
 import { Hero } from './components/home/Hero';
@@ -15,6 +15,7 @@ import { StudentList } from './pages/admin/StudentList';
 import { MaterialUpload } from './pages/admin/MaterialUpload';
 import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
+import { useThemeStore } from './store/themeStore';
 
 function HomePage() {
   return (
@@ -27,9 +28,15 @@ function HomePage() {
 }
 
 function App() {
+  const { isDarkMode } = useThemeStore();
+
+  useEffect(() => {
+    document.body.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
+
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
         <Header />
         <div className="pt-16">
           <Routes>

@@ -11,24 +11,24 @@ interface Instructor {
 
 const instructors: Instructor[] = [
   {
-    name: "Dr. James Wilson",
+    name: "Dheeraj Kumar",
     role: "Java & Spring Boot Expert",
-    phone: "+1234567890",
-    whatsapp: "+1234567890",
+    phone: "+919542342904",
+    whatsapp: "+919542342904",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   },
   {
-    name: "Emily Chen",
+    name: "Dheeraj Kumar",
     role: "Automation Testing Specialist",
     phone: "+1234567891",
-    whatsapp: "+1234567891",
+    whatsapp: "+919542342904",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   },
   {
     name: "Maria Garcia",
     role: "Database & SQL Expert",
     phone: "+1234567892",
-    whatsapp: "+1234567892",
+    whatsapp: "+919542342904",
     image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
   }
 ];
