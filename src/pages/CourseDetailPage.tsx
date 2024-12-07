@@ -10,9 +10,9 @@ export function CourseDetailPage() {
 
   if (!course) {
     return (
-      <div className="min-h-screen pt-24 px-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Course not found</h2>
-        <Link to="/courses" className="mt-4 text-blue-600 hover:text-blue-800">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 px-4 text-center">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Course not found</h2>
+        <Link to="/courses" className="mt-4 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-600">
           Back to courses
         </Link>
       </div>
@@ -24,9 +24,9 @@ export function CourseDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
           <div className="relative h-96">
             <img
               src={course.image}
@@ -37,48 +37,48 @@ export function CourseDetailPage() {
           
           <div className="p-8">
             <div className="flex flex-wrap items-center justify-between">
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                 {course.title}
               </h1>
               <div className="flex items-center">
-                <DollarSign className="h-6 w-6 text-blue-600" />
-                <span className="text-3xl font-bold text-blue-600">
+                <DollarSign className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                   ${course.price}
                 </span>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4 mt-4">
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-gray-600 dark:text-gray-400">
                 <Clock className="h-5 w-5 mr-2" />
                 {course.duration}
               </div>
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-gray-600 dark:text-gray-400">
                 <Users className="h-5 w-5 mr-2" />
                 {course.level}
               </div>
             </div>
 
-            <p className="mt-6 text-gray-600 text-lg leading-relaxed">
+            <p className="mt-6 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
               {course.description}
             </p>
 
             <div className="mt-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                 What you'll learn
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {course.topics.map((topic, index) => (
                   <div key={index} className="flex items-start">
-                    <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 mt-1" />
-                    <span>{topic}</span>
+                    <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400 mr-2 mt-1" />
+                    <span className="text-gray-600 dark:text-gray-400">{topic}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="mt-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                 Your Instructor
               </h2>
               <div className="flex items-center">
@@ -88,19 +88,19 @@ export function CourseDetailPage() {
                   className="h-16 w-16 rounded-full object-cover"
                 />
                 <div className="ml-4">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                     {course.instructor.name}
                   </h3>
-                  <p className="text-gray-600">{course.instructor.title}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{course.instructor.title}</p>
                 </div>
               </div>
-              <p className="mt-4 text-gray-600">{course.instructor.bio}</p>
+              <p className="mt-4 text-gray-600 dark:text-gray-400">{course.instructor.bio}</p>
             </div>
 
             <div className="mt-8 flex justify-center">
               <button 
                 onClick={handleEnrollClick}
-                className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors duration-300"
+                className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors duration-300"
               >
                 Enroll Now
               </button>

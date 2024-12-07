@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MessageSquare, ThumbsUp, Reply, Trash2 } from 'lucide-react';
 import { ForumPost as IForumPost } from '../../types';
 import { useAuthStore } from '../../store/authStore';
-import { useForumStore } from '../../store/ForumStore.ts';
+import { useForumStore } from '../../store/forumStore';
 import { format } from 'date-fns';
 
 interface ForumPostProps {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Database, TestTube2, Users } from 'lucide-react';
+import { useThemeStore } from '../../store/themeStore';
 
 const features = [
   {
@@ -25,15 +26,18 @@ const features = [
 ];
 
 export function Features() {
+  const { isDarkMode } = useThemeStore();
   return (
-    <div className="py-12 bg-white">
+    <div className={`py-12 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Our Courses</h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className={`text-base font-semibold tracking-wide uppercase ${isDarkMode ? 'text-blue-300' : 'text-blue-600'}`}>
+            Our Courses
+          </h2>
+          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
             Comprehensive Technical Training
           </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+          <p className="mt-4 max-w-2xl text-xl lg:mx-auto">
             Choose from our range of specialized courses designed to help you excel in your technical career.
           </p>
         </div>
@@ -42,11 +46,15 @@ export function Features() {
           <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
-                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                <div
+                  className={`absolute flex items-center justify-center h-12 w-12 rounded-md ${
+                    isDarkMode ? 'bg-blue-500' : 'bg-blue-600'
+                  } text-white`}
+                >
                   <feature.icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
-                <p className="mt-2 ml-16 text-base text-gray-500">{feature.description}</p>
+                <p className="ml-16 text-lg leading-6 font-medium">{feature.name}</p>
+                <p className="mt-2 ml-16 text-base">{feature.description}</p>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
 import { Hero } from './components/home/Hero';
@@ -15,6 +15,7 @@ import { StudentList } from './pages/admin/StudentList';
 import { MaterialUpload } from './pages/admin/MaterialUpload';
 import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
+import { ForumPage } from './pages/forum/forumPage';
 import { useThemeStore } from './store/themeStore';
 
 function HomePage() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CourseDetailPage />} />
+            <Route path="/courses/:courseId/forum" element={<ForumPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/enroll" element={<EnrollmentContact />} />
             <Route path="/contact" element={<ContactPage />} />
